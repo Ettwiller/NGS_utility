@@ -5,16 +5,16 @@ use Getopt::Long qw(GetOptions);
 
 
 my $file;
-my $CUTOFF; # 
+my $CUTOFF=0; # 
 
 my $usage_sentence = "perl $0 --fastq fastq_file --cutoff 10";
 
 
-GetOptions ("file=s" => \$file,    # numeric
-	        "cutoff=s" => \$CUTOFF
+GetOptions ("fastq=s" => \$file,    # numeric
+	    "cutoff=s" => \$CUTOFF
     ) or die $usage_sentence;
 
-if (!$file || !$CUTOFF) {die $usage_sentence;}
+if (!$file) {die $usage_sentence;}
 
 local $/ = "+";
 
